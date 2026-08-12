@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1b1b1f;
+  --color-muted: #5a5a66;
+  --color-paper: #fdfcf8;
+  --color-line: #e3e0d6;
+  --color-brand: #1d5fa8;
+  --color-brand-dark: #16497f;
+  --color-accent: #d94f2b;
+  --color-yes: #1f7a4d;
+  --color-partly: #b06d00;
+  --color-no: #a33227;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+html, body { height: 100%; }
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tap targets sized for a teacher holding a tablet in one hand. */
+button { touch-action: manipulation; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+  .print-page { padding: 0 !important; }
+  a[href]::after { content: ""; }
+}
+
+@keyframes pulse-beat {
+  0%   { transform: scale(1);    opacity: 1; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+.beat-ring { animation: pulse-beat 260ms ease-out; }
